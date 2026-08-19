@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - Open Coffee</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+        <nav class="nav-container">
+            <div class="logo">
+                Open Coffee
+            </div>
+            <ul class="nav-menu">
+                <li>
+                    <a href="index.html">Trang chủ</a>
+                </li>
+                <li>
+                    <a href="gioithieu.html">Giới thiệu</a>
+                </li>
+                <li>
+                    <a href="thucdon.html">Thực đơn</a>
+                </li>
+                <li>
+                    <a href="lienhe.html" class="active">Liên hệ</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- ================= CONTACT ================= -->
+    <main class="contact-page">
+        <section class="contact-intro">
+            <h1>Liên Hệ Với Open Coffee</h1>
+            <p>
+                Bạn có câu hỏi, góp ý hoặc muốn đặt bàn ?
+                Hãy gửi lời nhắn cho chúng tôi.
+            </p>
+        </section>
+        <div class="contact-wrapper">
+            <!-- ===== FORM ===== -->
+            <section class="contact-box">
+               <h2>Gửi lời nhắn</h2>
+                <form
+                    class="contact-form"
+                    id="contactForm"
+                >
+                    <label for="name">
+                        Họ và tên
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Nhập họ và tên"
+                        required
+                    >
+                    <label for="email">
+                        Email
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@gmail.com"
+                        required
+                    >
+                    <label for="phone">
+                        Số điện thoại
+                    </label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="09xxxxxxxx"
+                    >
+                   <label for="subject">
+                        Chủ đề
+                    </label>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        placeholder="Bạn muốn trao đổi về vấn đề gì?"
+                    >
+                    <label for="message">
+                        Nội dung
+                    </label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Nhập nội dung tin nhắn..."
+                        required
+                    ></textarea>
+                    <button
+                        type="submit"
+                        class="btn"
+                    >
+                        Gửi liên hệ
+                    </button>
+                    <div
+                        class="form-message"
+                        id="formMessage"
+                    >
+                        ✓ Cảm ơn bạn! Tin nhắn đã được ghi nhận.
+                    </div>
+
+                </form>
+
+            </section>
+            <!-- ===== THÔNG TIN QUÁN ===== -->
+
+            <section class="contact-box">
+
+                <h2>Thông tin quán</h2>
+
+                <div class="contact-info">
+
+                    <!-- Địa chỉ -->
+                    <div class="info-item">
+
+                        <div class="info-icon">
+                            📍
+                        </div>
+
+                        <div>
+                            <h3>Địa chỉ</h3>
+
+                            <p>
+                                123 Đường Cà Phê,
+                                Quận 1, TP. Hồ Chí Minh
+                            </p>
+                        </div>
+
+                    </div>
+                    <!-- Hotline -->
+                    <div class="info-item">
+
+                        <div class="info-icon">
+                            ☎
+                        </div>
+
+                        <div>
+                            <h3>Hotline</h3>
+
+                            <p>
+                                <a href="tel:19000000">
+                                    1900 xxxx
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                    <!-- Email -->
+                    <div class="info-item">
+                        <div class="info-icon">
+                            ✉
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>
+                                <a href="mailto:hello@opencoffee.vn">
+                                    hello@opencoffee.vn
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Giờ mở cửa -->
+                    <div class="info-item">
+                        <div class="info-icon">
+                            🕐
+                        </div>
+
+                        <div>
+                            <h3>Giờ mở cửa</h3>
+                            <p>
+                                Thứ 2 - Chủ Nhật:
+                                07:00 - 22:00
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ===== MAP ===== -->
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.489799292158!2d106.699411!3d10.773727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ2JzI1LjQiTiAxMDbCsDQxJzU3LjkiRQ!5e0!3m2!1svi!2svn!4v1625000000000"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <!-- ===== SOCIAL ===== -->
+                <div class="social-contact">
+                    <h3>Theo dõi Open Coffee</h3>
+                    <div class="social-links">
+                       <a href="[#](https://www.facebook.com/profile.php?id=61552766022101)" aria-label="Facebook">
+                            f
+                        </a>
+                        <a href="[#](https://www.instagram.com/opencafeshopping/)" aria-label="Instagram">
+                            ◎
+                        </a>
+                        <a href="[#](https://www.tiktok.com/@mamatcha.cafe?is_from_webapp=1&sender_device=pc)" aria-label="TikTok">
+                            ♪
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- ================= FOOTER ================= -->
+    <footer>
+       <div class="footer-content">
+            <div class="footer-col">
+                <h4>Open Coffee</h4>
+                <p>
+                    Nơi chia sẻ niềm đam mê
+                    cà phê hàng ngày.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Giờ mở cửa</h4>
+                <p>
+                    Thứ 2 - Chủ Nhật:
+                    07:00 - 22:00
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Hỗ trợ & Liên hệ</h4>
+                <p>
+                    Hotline: 1900 xxxx
+                </p>
+                <p>
+                    TP. Hồ Chí Minh, Việt Nam
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Open Coffee.
+        </div>
+    </footer>
+    <!-- ================= JAVASCRIPT ================= -->
+    <script src="lienhe.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực đơn & Đặt hàng - Open Coffee</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Open Coffee</div>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <a href="gioithieu.html">Giới thiệu</a>
+            <a href="thucdon.html"class="active">Thực đơn</a>
+            <a href="lienhe.html">Liên hệ</a>
+            <button class="cart-btn-header" onclick="openCart()">🛒 Giỏ hàng (<span id="cart-count">0</span>)</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Thực Đơn Open Coffee</h1>
+        <p>Chọn món yêu thích & Đặt hàng giao tận nơi</p>
+    </section>
+
+    <main class="menu-container">
+        <!-- CÀ PHÊ -->
+        <h2 class="category-title">Cà Phê</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Cà Phê Đen</h3>
+                        <p>Hạt Robusta rang xay nguyên chất, đậm vị đắng thanh.</p>
+                    </div>
+                    <div class="item-price">29.000đ</div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Cà Phê Đen ', 29000)">+ Thêm vào giỏ</button>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Cà Phê Sữa </h3>
+                        <p>Cà phê kết hợp sữa đặc .</p>
+                    </div>
+                    <div class="item-price">32.000đ</div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Cà Phê Sữa ', 32000)">+ Thêm vào giỏ</button>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Bạc xĩu </h3>
+                        <p>Lớp kem muối béo ngậy kết hợp cà phê .</p>
+                    </div>
+                    <div class="item-price">35.000đ</div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Cà Phê Muối ', 35000)">+ Thêm vào giỏ</button>
+            </div>
+        </div>
+
+        <!-- TRÀ -->
+        <h2 class="category-title">thực đơn trà chiều</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Trà Đào Cam Sả</h3>
+                        <p>Hương sả thơm nồng kết hợp vị đào ngọt mát và cam tươi.</p>
+                    </div>
+                    <div class="item-price">39.000đ</div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Trà Đào Cam Sả', 39000)">+ Thêm vào giỏ</button>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Trà Vải Lài</h3>
+                        <p>Trà lài kèm trái vải .</p>
+                    </div>
+                    <div class="item-price">39.000đ</div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Trà Vải Lài ', 39000)">+ Thêm vào giỏ</button>
+            </div>
+        </div>
+
+        <!-- BÁNH MÌ -->
+        <h2 class="category-title">Bánh Mì</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Bánh Mì Croisant</h3>
+                        <p>Vỏ giòn rụm, mùi sữa đặc trưng.</p>
+                    </div>
+                    <div class="item-price">25.000đ</div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Bánh Mì Croisant', 25000)">+ Thêm vào giỏ</button>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <div class="item-info">
+                        <h3>Bánh Mì que pate</h3>
+                        <p>Bánh mì nướng cùng chà bông và pate.</p>
+                    </div>
+                    <div class="item-price">25.000đ</div>
+                </div>
+                <button class="btn-add" onclick="addToCart('Bánh Mì que pate', 25000)">+ Thêm vào giỏ</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL GIỎ HÀNG & ĐẶT HÀNG -->
+    <div class="modal-overlay" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Giỏ Hàng Của Bạn</h3>
+                <button class="close-btn" onclick="closeCart()">&times;</button>
+            </div>
+
+            <div class="cart-list" id="cartList">
+                <!-- Các món ăn sẽ render ở đây -->
+            </div>
+
+            <div class="cart-total">
+                Tổng cộng: <span id="cartTotal">0đ</span>
+            </div>
+
+            <form class="order-form" onsubmit="handleOrderSubmit(event)">
+                <h4 style="margin-bottom: 10px; color: #5a3d28;">Thông tin giao hàng:</h4>
+                <input type="text" id="custName" placeholder="Họ và tên *" required>
+                <input type="tel" id="custPhone" placeholder="Số điện thoại *" required>
+                <input type="text" id="custAddress" placeholder="Địa chỉ giao hàng *" required>
+                <textarea id="custNote" rows="2" placeholder="Ghi chú thêm (ít đường, ít đá...)"></textarea>
+                
+                <button type="submit" class="btn-submit-order">XÁC NHẬN ĐẶT HÀNG</button>
+            </form>
+        </div>
+    </div>
+<script src="thucdon.js"></script>
+    
+</body>
+</html>
