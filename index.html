@@ -4,50 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Coffee - Hương vị kết nối</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+      (function () {
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
 </head>
 <body>
 
-    <!-- Header dùng chung -->
+    <div id="nav-sentinel"></div>
+
     <header>
         <nav class="nav-container">
-            <div class="logo">Open Coffee</div>
-            <ul class="nav-menu">
+            <a href="index.html" class="logo" aria-label="Open Coffee - về trang chủ">
+                <img src="favicon.svg" alt="" class="logo-img" width="32" height="32">
+                <span class="logo-text">Open Coffee</span>
+            </a>
+
+            <ul class="nav-menu" id="nav-mobile">
                 <li><a href="index.html" class="active">Trang chủ</a></li>
                 <li><a href="gioithieu.html">Giới thiệu</a></li>
                 <li><a href="thucdon.html">Thực đơn</a></li>
                 <li><a href="lienhe.html">Liên hệ</a></li>
             </ul>
+
+            <div class="nav-actions">
+                <button id="dark-mode-toggle" type="button" aria-pressed="false" aria-label="Chuyển chế độ tối">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+                    </svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                    </svg>
+                </button>
+                <button aria-controls="nav-mobile" aria-expanded="false" aria-label="Mở menu" class="nav-toggle">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <!-- Banner chính -->
     <section class="hero">
         <h1>Chào mừng bạn đến với Open Coffee</h1>
         <p>Không gian ấm áp - Cà phê đậm vị - Câu chuyện kết nối</p>
-        <a href="menu.html" class="btn">Khám phá Menu</a>
+        <a href="thucdon.html" class="btn">Khám phá Menu</a>
     </section>
 
-    <!-- Sản phẩm nổi bật -->
     <main class="container">
         <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
         <div class="grid">
             <div class="card">
-                <img src="images/placeholder.jpg" alt="Cà phê sữa đá">
+                
                 <h3>Cà Phê Sữa Đá</h3>
                 <p>Hạt cà phê Robusta nguyên chất pha phin truyền thống.</p>
                 <p class="price">29.000 đ</p>
                 <a href="#" class="btn">Thêm vào giỏ</a>
             </div>
             <div class="card">
-                <img src="images/placeholder.jpg" alt="Bạc xỉu">
+                
                 <h3>Bạc Xỉu Ấm Áp</h3>
                 <p>Sự kết hợp hoàn hảo giữa sữa đặc, sữa tươi và cà phê.</p>
                 <p class="price">35.000 đ</p>
                 <a href="#" class="btn">Thêm vào giỏ</a>
             </div>
             <div class="card">
-                <img src="images/placeholder.jpg" alt="Croissant">
+                
                 <h3>Bánh Sừng Bò</h3>
                 <p>Bánh nướng giòn rụm, thơm nức hương bơ Pháp.</p>
                 <p class="price">25.000 đ</p>
@@ -56,7 +85,6 @@
         </div>
     </main>
 
-    <!-- Footer dùng chung -->
     <footer>
         <div class="footer-content">
             <div class="footer-col">
@@ -74,9 +102,17 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 Open Coffee. Thiết kế website bởi bạn.
+            &copy; 2026 Open Coffee. Bài tập thực hành môn thiết kế web.
         </div>
     </footer>
+
+    <button type="button" id="nut-len-dau" class="to-top" aria-label="Lên đầu trang">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script type="module" src="./js/main.js"></script>
 
 </body>
 </html>

@@ -4,18 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thực đơn & Đặt hàng - Open Coffee</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
+    <script>
+      (function () {
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
 </head>
 <body>
 
+    <div id="nav-sentinel"></div>
+
     <header>
-        <div class="logo">Open Coffee</div>
-        <nav>
-            <a href="index.html">Trang chủ</a>
-            <a href="gioithieu.html">Giới thiệu</a>
-            <a href="thucdon.html"class="active">Thực đơn</a>
-            <a href="lienhe.html">Liên hệ</a>
-            <button class="cart-btn-header" onclick="openCart()">🛒 Giỏ hàng (<span id="cart-count">0</span>)</button>
+        <nav class="nav-container">
+            <a href="index.html" class="logo" aria-label="Open Coffee - về trang chủ">
+                <img src="favicon.svg" alt="" class="logo-img" width="32" height="32">
+                <span class="logo-text">Open Coffee</span>
+            </a>
+
+            <ul class="nav-menu" id="nav-mobile">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="gioithieu.html">Giới thiệu</a></li>
+                <li><a href="thucdon.html" class="active">Thực đơn</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="cart-btn-header" type="button" onclick="openCart()">
+                    🛒 Giỏ hàng (<span id="cart-count">0</span>)
+                </button>
+                <button id="dark-mode-toggle" type="button" aria-pressed="false" aria-label="Chuyển chế độ tối">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+                    </svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+                    </svg>
+                </button>
+                <button aria-controls="nav-mobile" aria-expanded="false" aria-label="Mở menu" class="nav-toggle">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -36,32 +69,32 @@
                     </div>
                     <div class="item-price">29.000đ</div>
                 </div>
-                <button class="btn-add" onclick="addToCart('Cà Phê Đen ', 29000)">+ Thêm vào giỏ</button>
+                <button class="btn-add" onclick="addToCart('Cà Phê Đen', 29000)">+ Thêm vào giỏ</button>
             </div>
             <div class="menu-item">
                 <div class="item-header">
                     <div class="item-info">
-                        <h3>Cà Phê Sữa </h3>
-                        <p>Cà phê kết hợp sữa đặc .</p>
+                        <h3>Cà Phê Sữa</h3>
+                        <p>Cà phê kết hợp sữa đặc.</p>
                     </div>
                     <div class="item-price">32.000đ</div>
                 </div>
-                <button class="btn-add" onclick="addToCart('Cà Phê Sữa ', 32000)">+ Thêm vào giỏ</button>
+                <button class="btn-add" onclick="addToCart('Cà Phê Sữa', 32000)">+ Thêm vào giỏ</button>
             </div>
             <div class="menu-item">
                 <div class="item-header">
                     <div class="item-info">
-                        <h3>Bạc xĩu </h3>
-                        <p>Lớp kem muối béo ngậy kết hợp cà phê .</p>
+                        <h3>Bạc Xỉu</h3>
+                        <p>Lớp kem muối béo ngậy kết hợp cà phê.</p>
                     </div>
                     <div class="item-price">35.000đ</div>
                 </div>
-                <button class="btn-add" onclick="addToCart('Cà Phê Muối ', 35000)">+ Thêm vào giỏ</button>
+                <button class="btn-add" onclick="addToCart('Bạc Xỉu', 35000)">+ Thêm vào giỏ</button>
             </div>
         </div>
 
         <!-- TRÀ -->
-        <h2 class="category-title">thực đơn trà chiều</h2>
+        <h2 class="category-title">Trà Chiều</h2>
         <div class="menu-grid">
             <div class="menu-item">
                 <div class="item-header">
@@ -77,11 +110,11 @@
                 <div class="item-header">
                     <div class="item-info">
                         <h3>Trà Vải Lài</h3>
-                        <p>Trà lài kèm trái vải .</p>
+                        <p>Trà lài kèm trái vải.</p>
                     </div>
                     <div class="item-price">39.000đ</div>
                 </div>
-                <button class="btn-add" onclick="addToCart('Trà Vải Lài ', 39000)">+ Thêm vào giỏ</button>
+                <button class="btn-add" onclick="addToCart('Trà Vải Lài', 39000)">+ Thêm vào giỏ</button>
             </div>
         </div>
 
@@ -91,22 +124,22 @@
             <div class="menu-item">
                 <div class="item-header">
                     <div class="item-info">
-                        <h3>Bánh Mì Croisant</h3>
+                        <h3>Bánh Mì Croissant</h3>
                         <p>Vỏ giòn rụm, mùi sữa đặc trưng.</p>
                     </div>
                     <div class="item-price">25.000đ</div>
                 </div>
-                <button class="btn-add" onclick="addToCart('Bánh Mì Croisant', 25000)">+ Thêm vào giỏ</button>
+                <button class="btn-add" onclick="addToCart('Bánh Mì Croissant', 25000)">+ Thêm vào giỏ</button>
             </div>
             <div class="menu-item">
                 <div class="item-header">
                     <div class="item-info">
-                        <h3>Bánh Mì que pate</h3>
+                        <h3>Bánh Mì Que Pate</h3>
                         <p>Bánh mì nướng cùng chà bông và pate.</p>
                     </div>
                     <div class="item-price">25.000đ</div>
                 </div>
-                <button class="btn-add" onclick="addToCart('Bánh Mì que pate', 25000)">+ Thêm vào giỏ</button>
+                <button class="btn-add" onclick="addToCart('Bánh Mì Que Pate', 25000)">+ Thêm vào giỏ</button>
             </div>
         </div>
     </main>
@@ -119,26 +152,53 @@
                 <button class="close-btn" onclick="closeCart()">&times;</button>
             </div>
 
-            <div class="cart-list" id="cartList">
-                <!-- Các món ăn sẽ render ở đây -->
-            </div>
+            <div class="cart-list" id="cartList"></div>
 
             <div class="cart-total">
                 Tổng cộng: <span id="cartTotal">0đ</span>
             </div>
 
             <form class="order-form" onsubmit="handleOrderSubmit(event)">
-                <h4 style="margin-bottom: 10px; color: #5a3d28;">Thông tin giao hàng:</h4>
+                <h4 style="margin-bottom: 10px; color: var(--cafe-brown);">Thông tin giao hàng:</h4>
                 <input type="text" id="custName" placeholder="Họ và tên *" required>
                 <input type="tel" id="custPhone" placeholder="Số điện thoại *" required>
                 <input type="text" id="custAddress" placeholder="Địa chỉ giao hàng *" required>
                 <textarea id="custNote" rows="2" placeholder="Ghi chú thêm (ít đường, ít đá...)"></textarea>
-                
+
                 <button type="submit" class="btn-submit-order">XÁC NHẬN ĐẶT HÀNG</button>
             </form>
         </div>
     </div>
-<script src="thucdon.js"></script>
-    
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Open Coffee</h4>
+                <p>Nơi chia sẻ niềm đam mê cà phê hàng ngày.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Giờ mở cửa</h4>
+                <p>Thứ 2 - Chủ Nhật: 07:00 - 22:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Hỗ trợ & Liên hệ</h4>
+                <p>Hotline: 1900 xxxx</p>
+                <p>TP. Hồ Chí Minh, Việt Nam</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Open Coffee.
+        </div>
+    </footer>
+
+    <button type="button" id="nut-len-dau" class="to-top" aria-label="Lên đầu trang">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script type="module" src="./js/main.js"></script>
+    <script src="thucdon.js"></script>
+
 </body>
 </html>
